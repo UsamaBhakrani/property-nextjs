@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import img from "@/assets/images/logo.png";
+import { getRates } from "@/utils/helpers";
 
 const PropertyCard = ({ property }) => {
   const {
@@ -24,7 +25,10 @@ const PropertyCard = ({ property }) => {
   return (
     <div key={_id} className="rounded-xl shadow-md relative">
       <Image
-        src={property.images[0]}
+        src={`/properties/${property.images[0]}`}
+        width={100}
+        height={100}
+        sizes={'100vh'}
         alt=""
         className="h-25 w-80 rounded-t-xl"
       />
@@ -34,7 +38,7 @@ const PropertyCard = ({ property }) => {
           <h3 className="text-xl font-bold">{name}</h3>
         </div>
         <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
-          {rates.weekly || rates.monthly}
+         {getRates(rates)}
         </h3>
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
