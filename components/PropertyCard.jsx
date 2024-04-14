@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getRates } from "@/utils/helpers";
+import {
+  FaBed,
+  FaBath,
+  FaRulerCombined,
+  FaMoneyBill,
+  FaMapMarker,
+} from "react-icons/fa";
 
 const PropertyCard = ({ property }) => {
   const {
@@ -25,9 +32,9 @@ const PropertyCard = ({ property }) => {
     <div key={_id} className="rounded-xl shadow-md relative">
       <Image
         src={`/properties/${property.images[0]}`}
-        width={100}
-        height={100}
-        sizes={'100vh'}
+        width={0}
+        height={0}
+        sizes={"100vh"}
         alt=""
         className="h-25 w-80 rounded-t-xl"
       />
@@ -37,29 +44,29 @@ const PropertyCard = ({ property }) => {
           <h3 className="text-xl font-bold">{name}</h3>
         </div>
         <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
-         {getRates(rates)}
+          {getRates(rates)}
         </h3>
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <i className="fa-solid fa-bed"></i> {beds}
+            <FaBed className="inline mr-1" /> {beds}
             <span className="md:hidden lg:inline">Beds</span>
           </p>
           <p>
-            <i className="fa-solid fa-bath"></i> {baths}
+            <FaBath className="inline mr-1" /> {baths}
             <span className="md:hidden lg:inline">Baths</span>
           </p>
           <p>
-            <i className="fa-solid fa-ruler-combined"></i>
+            <FaRulerCombined className="inline mr-1" />
             {square_feet} <span className="md:hidden lg:inline">sqft</span>
           </p>
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
           <p>
-            <i className="fa-solid fa-money-bill"></i> Weekly
+            <FaMoneyBill className="inline mr-1" /> Weekly
           </p>
           <p>
-            <i className="fa-solid fa-money-bill"></i> Monthly
+            <FaMoneyBill className="inline mr-1" /> Monthly
           </p>
         </div>
 
@@ -67,8 +74,11 @@ const PropertyCard = ({ property }) => {
 
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="flex align-middle gap-2 mb-4 lg:mb-0">
-            <i className="fa-solid fa-location-dot text-lg text-orange-700"></i>
-            <span className="text-orange-700"> {location.city} </span>
+            <FaMapMarker className="inline mr-1 text-orange-700 mt-1" />
+            <span className="text-orange-700">
+              {" "}
+              {location.city} {location.state}{" "}
+            </span>
           </div>
           <Link
             href={`/properties/${_id}`}
