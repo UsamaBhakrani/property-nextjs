@@ -1,3 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
+import img from "@/assets/images/logo.png";
+
 const PropertyCard = ({ property }) => {
   const {
     _id,
@@ -19,10 +23,10 @@ const PropertyCard = ({ property }) => {
   } = property;
   return (
     <div key={_id} className="rounded-xl shadow-md relative">
-      <img
-        src="images/properties/a1.jpg"
+      <Image
+        src={property.images[0]}
         alt=""
-        className="w-full h-auto rounded-t-xl"
+        className="h-25 w-80 rounded-t-xl"
       />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
@@ -63,12 +67,12 @@ const PropertyCard = ({ property }) => {
             <i className="fa-solid fa-location-dot text-lg text-orange-700"></i>
             <span className="text-orange-700"> {location.city} </span>
           </div>
-          <a
-            href="property.html"
+          <Link
+            href={`/property/${_id}`}
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
