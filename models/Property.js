@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const PropertySchema = new Schema(
   {
@@ -64,7 +64,7 @@ const PropertySchema = new Schema(
         type: String,
       },
     ],
-    is_featured: { Type: Boolean, default: false },
+    is_featured: { Type: Boolean },
   },
   { timestamps: true }
 );
