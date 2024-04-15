@@ -38,7 +38,7 @@ const PropertyPage = () => {
     <>
       {!loading && property && (
         <>
-          <PropertyHeaderImage image={property.images[0]} />
+          <PropertyHeaderImage image={property.images[0]} property={property} />
         </>
       )}
     </>
