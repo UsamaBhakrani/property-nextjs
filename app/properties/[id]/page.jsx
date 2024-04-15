@@ -1,8 +1,11 @@
 "use client";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
+import Spinner from "@/components/Spinner";
 import { getSingleProperty } from "@/utils/requests";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 
 const PropertyPage = () => {
   const { id } = useParams();
@@ -36,9 +39,20 @@ const PropertyPage = () => {
 
   return (
     <>
+      {loading && <Spinner loading={loading} />}
       {!loading && property && (
         <>
           <PropertyHeaderImage image={property.images[0]} property={property} />
+          <section>
+            <div className="container m-auto py-6 px-6">
+              <Link
+                href="/properties"
+                className="text-blue-500 hover:text-blue-600 flex items-center"
+              >
+                <FaArrowLeft className="mr-2 " /> Back to Properties
+              </Link>
+            </div>
+          </section>
         </>
       )}
     </>

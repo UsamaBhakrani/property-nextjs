@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import PropertyDetails from "./PropertyDetails";
 import ContactForm from "./ContactForm";
-import { FaArrowLeft } from "react-icons/fa";
 
 const PropertyHeaderImage = ({ image, property }) => {
   return (
@@ -22,16 +21,7 @@ const PropertyHeaderImage = ({ image, property }) => {
           </div>
         </div>
       </section>
-      <section>
-        <div className="container m-auto py-6 px-6">
-          <Link
-            href="/properties"
-            className="text-blue-500 hover:text-blue-600 flex items-center"
-          >
-            <FaArrowLeft className="mr-2 " /> Back to Properties
-          </Link>
-        </div>
-      </section>
+    
 
       {/* <!-- Property Info --> */}
       <section className="bg-blue-50">
