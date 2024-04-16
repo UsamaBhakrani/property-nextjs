@@ -18,7 +18,7 @@ export const authOptions = {
   ],
   callbacks: {
     // invoked on successful signin
-    async signIn({ profile }) {
+    async signIn({ account, profile }) {
       // Connect to Database
       await connectDB();
       // Check if User Exists
@@ -36,13 +36,13 @@ export const authOptions = {
       // Return true to allow signin
       return true;
     },
-    async session({ session }) {
+    async session({ session, token }) {
       // Get User from database
       const user = User.findOne({ email: session.user.email });
       // Assign the user id to the session
       session.user.id = user._id;
       // return session
-      return session;
+      return { session};
     },
   },
 };
