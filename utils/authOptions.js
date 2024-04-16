@@ -40,7 +40,7 @@ export const authOptions = {
       // Get User from database
       const user = User.findOne({ email: session.user.email });
       // Assign the user id to the session
-      session.user.id = user._id;
+      session.user.id = user._id.toString();
       // return session
       return { session};
     },

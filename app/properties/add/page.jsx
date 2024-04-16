@@ -1,3 +1,4 @@
+"use client";
 import PropertyAddForm from "@/components/PropertyAddForm";
 
 const PropertiesAddPage = () => {
